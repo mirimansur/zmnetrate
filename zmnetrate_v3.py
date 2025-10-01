@@ -23,9 +23,9 @@ E164_CODES = {
     "1670": "Northern Mariana Islands",
     "1671": "Guam",
     "1684": "American Samoa",
-    "1758": "Lucia",
+    "1758": "Saint Lucia",
     "1767": "Dominica",
-    "1784": "Vincent and the Grenadines",
+    "1784": "Saint Vincent and the Grenadines",
     "1787": "Puerto Rico",
     "1809": "Dominican Republic",
     "1868": "Trinidad and Tobago",
@@ -188,7 +188,7 @@ def _longest_prefix_in_set(number_str: str, candidates: Set[str]) -> Optional[st
 
 def _e164_country_code(number: str) -> Optional[str]:
     s = str(number)
-    for length in (4, 3, 2, 1):  # check NANP splits first
+    for length in (4, 3, 2, 1):  # check longer NANP prefixes first
         p = s[:length]
         if p in E164_CODES:
             return p
@@ -196,12 +196,10 @@ def _e164_country_code(number: str) -> Optional[str]:
 
 def _pick_best_for_vendor(df: pd.DataFrame, calling_number: str, called_number: str, vendor_name: str, dbg):
     origins = set(df["OriginCode"].astype(str).unique())
-    # Exclude ALL when building origin candidates
     origin_candidates = sorted(
         [o for o in origins if o != "ALL" and str(calling_number).startswith(o)],
         key=lambda x: -len(x)
     )
-    # Add ALL fallback
     if "ALL" in origins:
         origin_candidates.append("ALL")
 
@@ -212,13 +210,11 @@ def _pick_best_for_vendor(df: pd.DataFrame, calling_number: str, called_number: 
         if sub.empty:
             dbg["attempts"].append({"origin": oc, "note": "no rows"})
             continue
-
         dial_set = set(sub["DialCode"].astype(str).unique())
         dial = _longest_prefix_in_set(str(called_number), dial_set)
         if not dial:
             dbg["attempts"].append({"origin": oc, "note": "no dial match"})
             continue
-
         best_row = sub[sub["DialCode"] == dial].sort_values("Rate", ascending=True).iloc[0]
         dbg["selected"] = {"origin": oc, "dial": dial, "rate": float(best_row["Rate"])}
         return {
@@ -238,6 +234,7 @@ def find_best_vendors(calling_number: str, called_number: str, carrier: str):
     if not os.path.exists(ACTIVE_DIR):
         return {"status": "error", "details": f"Folder {ACTIVE_DIR} not found"}
 
+    # CallType detection (E.164)
     call_cc = _e164_country_code(calling_number)
     dest_cc = _e164_country_code(called_number)
     if call_cc and dest_cc and call_cc == dest_cc:
@@ -245,8 +242,9 @@ def find_best_vendors(calling_number: str, called_number: str, carrier: str):
         partition = f"{carrier}_NATL"
     else:
         calltype = "ILD"
-        partition = "ZOOM_NETRATE"
+        partition = "ZOOM_NATIVE"
 
+    # Evaluate each vendor
     for fname in os.listdir(ACTIVE_DIR):
         if not fname.lower().endswith(".csv"):
             continue
@@ -264,8 +262,10 @@ def find_best_vendors(calling_number: str, called_number: str, carrier: str):
                 vdbg.setdefault("note", "no match")
         except Exception as e:
             vdbg["error"] = str(e)
+
         overall_debug["vendors"].append(vdbg)
 
+    # Sort vendors by rate
     results.sort(key=lambda x: x["rate"])
     formatted = []
     for i, r in enumerate(results, 1):
@@ -277,12 +277,22 @@ def find_best_vendors(calling_number: str, called_number: str, carrier: str):
             "priority": i
         })
 
+    # CallType Indicator logic
+    if calltype == "ILD":
+        if formatted:
+            calltype_indicator = "ILD_V_LIST"
+        else:
+            calltype_indicator = "ILD_NO_V_LIST"
+    else:
+        calltype_indicator = "NATL"
+
     return {
         "calling_number": calling_number,
         "called_number": called_number,
         "status": "success",
         "CallType": calltype,
         "Partition": partition,
+        "CallType_Indicator": calltype_indicator,
         "leastCostVendors": formatted,
         "debug": overall_debug
     }
