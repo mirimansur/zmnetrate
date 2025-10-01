@@ -1,0 +1,21 @@
+OriginCode,DialCode,Rate,Currency,Carrier,EffectiveDate,Increment,Destination
+1,9376,0.530923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+44,9376,0.550923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+1268464,1268464,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+1268713,1268713,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+1268713,1268714,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+1268713,1268715,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+1268713,1268716,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+1,44,0.530923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+44,44,0.550923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+45,44,0.535498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,9376,0.1030923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+ALL,9376,0.1050923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+ALL,1268464,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,1268713,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,1268714,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,1268715,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,1268716,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
+ALL,44,0.1030923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+ALL,44,0.1050923,USD,Bandwidth,,/,Afghanistan - Areeba Mobile
+ALL,44,0.1035498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
