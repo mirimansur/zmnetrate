@@ -12,6 +12,7 @@ OriginCode,DialCode,Rate,Currency,Carrier,EffectiveDate,Increment,Destination
 44,44,0.0090923,USD,Bandwidth,,/,UK-UK
 44,45,0.150923,USD,Bandwidth,,/,UK-Denmark
 45,44,0.1635498,USD,Bandwidth,,/,Denmark-UK
+ALL,1,0.80923,USD,Bandwidth,,/,US-US
 ALL,1268464,0.2035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
 ALL,1268713,0.2035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
 ALL,1268714,0.2035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
@@ -22,5 +23,4 @@ ALL,34,0.350923,USD,Bandwidth,,/,ALL-Spain
 ALL,44,0.2030923,USD,Bandwidth,,/,ALL-UK
 ALL,45,0.350923,USD,Bandwidth,,/,ALL-Denmark
 ALL,9376,0.2030923,USD,Bandwidth,,/,ALL-Afghanistan - Areeba Mobile
-ALL,9376,0.2050923,USD,Bandwidth,,/,ALL-Afghanistan - Areeba Mobile
 
