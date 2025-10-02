@@ -1,16 +1,16 @@
 OriginCode,DialCode,Rate,Currency,Carrier,EffectiveDate,Increment,Destination
+1,1,0.10923,USD,Bandwidth,,/,US-US
+1,44,0.30923,USD,Bandwidth,,/,US-UK
 1,9376,0.30923,USD,Bandwidth,,/,US-Afghanistan - Areeba Mobile
-44,9376,0.50923,USD,Bandwidth,,/,UK-Afghanistan - Areeba Mobile
 1268464,1268464,0.35498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
 1268713,1268713,0.35498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
 1268713,1268714,0.35498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
 1268713,1268715,0.35498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
 1268713,1268716,0.35498,USD,Bandwidth,,/,Antigua & Barbuda - Mobile
-1,44,0.30923,USD,Bandwidth,,/,US-UK
 44,44,0.50923,USD,Bandwidth,,/,UK-UK
 45,44,0.35498,USD,Bandwidth,,/,DENMARK-UK
 45,45,0.35498,USD,Bandwidth,,/,DENMARK-DENMARK
-1,1,0.10923,USD,Bandwidth,,/,US-US
+44,9376,0.50923,USD,Bandwidth,,/,UK-Afghanistan - Areeba Mobile
 ALL,9376,0.030923,USD,Bandwidth,,/,ALL-Afghanistan - Areeba Mobile
 ALL,9376,0.050923,USD,Bandwidth,,/,ALL-Afghanistan - Areeba Mobile
 ALL,1268464,0.035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
@@ -18,5 +18,6 @@ ALL,1268713,0.035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
 ALL,1268714,0.035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
 ALL,1268715,0.035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
 ALL,1268716,0.035498,USD,Bandwidth,,/,ALL-Antigua & Barbuda - Mobile
-ALL,44,0.030923,USD,Bandwidth,,/,ALL-UK
 ALL,33,0.030923,USD,Bandwidth,,/,ALL-FRANCE
+ALL,34,0.030923,USD,Bandwidth,,/,ALL-SPAIN
+ALL,44,0.030923,USD,Bandwidth,,/,ALL-UK
