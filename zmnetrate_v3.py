@@ -23,9 +23,9 @@ E164_CODES = {
     "1670": "Northern Mariana Islands",
     "1671": "Guam",
     "1684": "American Samoa",
-    "1758": "Saint Lucia",
+    "1758": "SLucia",
     "1767": "Dominica",
-    "1784": "Saint Vincent and the Grenadines",
+    "1784": "SVincent and the Grenadines",
     "1787": "Puerto Rico",
     "1809": "Dominican Republic",
     "1868": "Trinidad and Tobago",
@@ -242,7 +242,7 @@ def find_best_vendors(calling_number: str, called_number: str, carrier: str):
         partition = f"{carrier}_NATL"
     else:
         calltype = "ILD"
-        partition = "ZOOM_NATIVE"
+        partition = "ZOOM_NETRATE"
 
     # Evaluate each vendor
     for fname in os.listdir(ACTIVE_DIR):
